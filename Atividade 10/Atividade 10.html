@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 900px;
+            margin: 20px;
+        }
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            flex: 1 1 calc(50% - 20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 180px;
+        }
+        .news-card img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .news-content {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .news-source {
+            font-size: 12px;
+            color: grey;
+        }
+        .news-title {
+            font-size: 14px;
+            margin: 10px 0;
+            flex-grow: 1;
+        }
+        .news-time {
+            font-size: 12px;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="news-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Instituto_Federal_do_Piau%C3%AD_-_Marca_Vertical_2015.svg" alt="Image"width=600 height=400>
+        <div class="news-content">
+            <div class="news-source">InfoMoney</div>
+            <div class="news-title">Preços no mercado livre operam próximos à estabilidade apesar de seca...</div>
+            <div class="news-time">2 horas atrás</div>
+        </div>
+    </div>
+    <div class="news-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Instituto_Federal_do_Piau%C3%AD_-_Marca_Vertical_2015.svg" alt="Image"width=600 height=400>
+        <div class="news-content">
+            <div class="news-source">CNN</div>
+            <div class="news-title">Três Poderes jamais devem avançar sobre “competências alheias”, diz Arthur Lira</div>
+            <div class="news-time">4 horas atrás</div>
+        </div>
+    </div>
+    <div class="news-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Instituto_Federal_do_Piau%C3%AD_-_Marca_Vertical_2015.svg" alt="Image">
+        <div class="news-content">
+            <div class="news-source">Terra</div>
+            <div class="news-title">Avião derrapa e explode em aeroporto em Cuiabá; duas pessoas morreram</div>
+            <div class="news-time">6 horas atrás</div>
+        </div>
+    </div>
+    <div class="news-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Instituto_Federal_do_Piau%C3%AD_-_Marca_Vertical_2015.svg" alt="Image" >
+        <div class="news-content">
+            <div class="news-source">Nobel da Paz</div>
+            <div class="news-title">Nobel da Paz: conheça nomes cotados para o prêmio deste ano, que será conhecido nest...</div>
+            <div class="news-time">3 horas atrás</div>
+        </div>
+    </div>
+    <div class="news-card">
+        <img height="300px" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Instituto_Federal_do_Piau%C3%AD_-_Marca_Vertical_2015.svg" alt="Image">
+        <div class="news-content">
+            <div class="news-source">R7.COM</div>
+            <div class="news-title">Japão inicia segunda fase de despejo de água da central nuclear de Fukushima</div>
+            <div class="news-time">7 horas atrás</div>
+        </div>
+    </div>
+    <div class="news-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Instituto_Federal_do_Piau%C3%AD_-_Marca_Vertical_2015.svg" alt="Image">
+        <div class="news-content">
+            <div class="news-source">G1</div>
+            <div class="news-title">Rompimento de lago glacial após fortes chuvas deixa 14 mortos e 102 desaparecidos...</div>
+            <div class="news-time">14 horas atrás</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
