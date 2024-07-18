@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias IFPI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header, footer, nav, aside, section {
+            background: #fa0000;    
+            color: #ffffff;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        header, footer {
+            text-align: center;
+        }
+        nav {
+            flex: 1;
+            background: #cf0000;
+        }
+        nav h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        aside {
+            flex: 1;
+            background: #ff0000;
+        }
+        .main {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+        }
+        .content {
+            display: flex;
+            flex: 3;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .news-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        section {
+            background: #666;
+            flex: 1 1 calc(50% - 20px);
+            padding: 10px;
+        }
+        article {
+            background: #fff;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        section header h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+        article h4 {
+            font-size: 14px;
+            margin: 10px 0 5px 0;
+        }
+        article img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        footer {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Portal de Notícias</h1>
+</header>
+
+<div class="main">
+    <nav>
+        <h2>Navegação</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Política</a></li>
+            <li><a href="#">Economia</a></li>
+            <li><a href="#">Esportes</a></li>
+            <li><a href="#">Tecnologia</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="news-grid">
+            <section>
+                <header>
+                    <h3>Política</h3>
+                </header>
+                <article>
+                    <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/Reuters_Direct_Media/BrazilOnlineReportBusinessNews/tagreuters.com2024binary_LYNXMPEK6E0CQ-FILEDIMAGE.jpg?w=1220&h=674&crop=1&quality=50" alt="Imagem de Política">
+                    <h4>Joe Biden testa positivo para Covid-19, diz Casa Branca</h4>
+                    <p>Presidente dos EUA tem sintomas leves e ficará em isolamento, segundo assessoria.</p>
+                </article>
+                <footer>2 horas atrás</footer>
+            </section>
+            <section>
+                <header>
+                    <h3>Economia</h3>
+                </header>
+                <article>
+                    <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/Reuters_Direct_Media/BrazilOnlineReportBusinessNews/tagreuters.com2024binary_LYNXMPEK5N0DX-FILEDIMAGE.jpg?w=1220&h=674&crop=1&quality=50" alt="Imagem de Economia">
+                    <h4>BC sugere a relator se tornar instituição inédita no Brasil para viabilizar autonomia financeira</h4>
+                    <p>Votação da PEC da autonomia foi adiada para agosto por rejeição do governo; BC não se tornaria mais empresa pública, em busca de consenso
+
+                    </p>
+                </article>
+                <footer>4 horas atrás</footer>
+            </section>
+            <section>
+                <header>
+                    <h3>Esportes</h3>
+                </header>
+                <article>
+                    <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/07/Alison_Lesao.webp?w=1000&h=563&crop=1&quality=50" alt="Imagem de Esportes">
+                    <h4>Alisson deixa campo chorando após sentir lesão e preocupa no São Paulo</h4>
+                    <p>Destaque do time na temporada, volante prendeu perna direita no gramado e não suportou dores
+
+                    </p>
+                </article>
+                <footer>6 horas atrás</footer>
+            </section>
+            <section>
+                <header>
+                    <h3>Tecnologia</h3>
+                </header>
+                <article>
+                    <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/07/tita-saturno-nasa.png?w=1220&h=674&crop=1&quality=50" alt="Imagem de Tecnologia">
+                    <h4>Dados de sonda aposentada da Nasa mostram chance de vida em Titã, lua de Saturno</h4>
+                    <p>Observações relacionadas às marés dos oceanos na superfície mostraram semelhanças entre o satélite e a Terra</p>
+                </article>
+                <footer>8 horas atrás</footer>
+            </section>
+        </div>
+    </div>
+
+    <aside>
+        <h2>Publicidade</h2>
+        <p>Espaço reservado para anúncios.</p>
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2024 Portal de Notícias. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
