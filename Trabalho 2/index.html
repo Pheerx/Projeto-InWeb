@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Produtos</title>
+    <style>
+    
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .menu-bar {
+            background-color: #007bff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .menu-bar button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .menu-bar button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        .menu-bar button:active {
+            transform: translateY(0);
+        }
+        .menu-bar button::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .menu-bar button:hover::after {
+            opacity: 1;
+        }
+
+        .table-container {
+            margin: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: 600;
+        }
+        td {
+            background-color: #fff;
+        }
+        tr:nth-child(even) td {
+            background-color: #f8f9fa;
+        }
+        tr:hover td {
+            background-color: #e9ecef;
+        }
+
+        .btn-action {
+            cursor: pointer;
+            margin: 0 5px;
+            position: relative;
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-action:hover {
+            background-color: #e2e6ea;
+            transform: translateY(-2px);
+        }
+        .btn-action:active {
+            transform: translateY(0);
+        }
+        .btn-action::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .btn-action:hover::after {
+            opacity: 1;
+        }
+
+        .status-active {
+            color: white;
+            background-color: #28a745;
+            padding: 5px 15px;
+            border-radius: 50px;
+            text-align: center;
+            display: inline-block;
+        }
+        .status-inactive {
+            color: white;
+            background-color: #6c757d;
+            padding: 5px 15px;
+            border-radius: 50px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.5s;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .form-group button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-bar">
+        <button data-tooltip="Ver pedidos recentes">Pedidos Recentes</button>
+        <button data-tooltip="Enviar informações ao cliente">Enviar Cliente</button>
+        <button data-tooltip="Registrar pagamento">Receber Pagamento</button>
+        <button data-tooltip="Visualizar todos os pedidos">Todos os Pedidos</button>
+        <button data-tooltip="Criar novo pedido">Novo Pedido</button>
+        <button data-tooltip="Voltar à página principal">Página Principal</button>
+    </div>
+
+    <div class="table-container">
+        <h2>Pesquisa de Produtos</h2>
+        <input type="text" placeholder="Descrição" id="searchDescription">
+        <button onclick="searchProduct()">Pesquisar</button>
+        <button onclick="reloadTable()">Recarregar</button>
+        <button onclick="openModal()">Novo</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Situação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Pizza</td>
+                    <td><span class="status-active">Ativo</span></td>
+                    <td>
+                        <span class="btn-action btn-view" data-tooltip="Visualizar produto">👁️</span>
+                        <span class="btn-action btn-edit" data-tooltip="Editar produto">✏️</span>
+                        <span class="btn-action btn-delete" data-tooltip="Excluir produto" onclick="confirmDeletion(1)">🗑️</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Refrigerante</td>
+                    <td><span class="status-active">Ativo</span></td>
+                    <td>
+                        <span class="btn-action btn-view" data-tooltip="Visualizar produto">👁️</span>
+                        <span class="btn-action btn-edit" data-tooltip="Editar produto">✏️</span>
+                        <span class="btn-action btn-delete" data-tooltip="Excluir produto" onclick="confirmDeletion(2)">🗑️</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Cajuína</td>
+                    <td><span class="status-inactive">Inativo</span></td>
+                    <td>
+                        <span class="btn-action btn-view" data-tooltip="Visualizar produto">👁️</span>
+                        <span class="btn-action btn-edit" data-tooltip="Editar produto">✏️</span>
+                        <span class="btn-action btn-delete" data-tooltip="Excluir produto" onclick="confirmDeletion(3)">🗑️</span>
+                    </td>
+                <tr>
+                <tr>
+                    <td>4</td>
+                    <td>Bordas</td>
+                    <td><span class="status-active">Ativo</span></td>
+                    <td>
+                        <span class="btn-action btn-view" data-tooltip="Visualizar produto">👁️</span>
+                        <span class="btn-action btn-edit" data-tooltip="Editar produto">✏️</span>
+                        <span class="btn-action btn-delete" data-tooltip="Excluir produto" onclick="confirmDeletion(2)">🗑️</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Cadastrar Produto</h2>
+            <form>
+                <div class="form-group">
+                    <label for="productName">Nome do Produto</label>
+                    <input type="text" id="productName" name="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Preço</label>
+                    <input type="number" id="productPrice" name="productPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Categoria</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="alimentos">Alimentos</option>
+                        <option value="bebidas">Bebidas</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productStatus">Situação</label>
+                    <select id="productStatus" name="productStatus" required>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Cadastrar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Função de confirmação de remoção de produto
+        function confirmDeletion(productId) {
+            let confirmAction = confirm("Tem certeza de que deseja remover este produto?");
+            if (confirmAction) {
+                alert("Produto " + productId + " removido.");
+                // Aqui você pode adicionar o código para realmente remover o produto da tabela
+            } else {
+                alert("Ação de remoção cancelada.");
+            }
+        }
+
+        // Fechar o modal ao clicar fora dele
+        window.onclick = function(event) {
+            let modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Exemplo de função de pesquisa
+        function searchProduct() {
+            alert('Pesquisar produto');
+        }
+
+        // Exemplo de função para recarregar tabela
+        function reloadTable() {
+            alert('Recarregar tabela');
+        }
+    </script>
+
+</body>
+</html>
