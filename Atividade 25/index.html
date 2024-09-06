@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caixas Coloridas</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Caixas Coloridas</h1>
+  <div id="caixas"></div>
+
+  <script>
+    const boxes = [
+      { color: 'red' },
+      { color: 'blue' },
+      { color: 'green' },
+      { color: 'yellow' },
+      { color: 'purple' }
+    ];
+
+    function listarBox() {
+      let caixasDiv = document.getElementById('caixas');
+
+      caixasDiv.innerHTML = '';
+
+      boxes.forEach((box, index) => {
+        let divBox = document.createElement('div');
+        divBox.className = 'box';
+        divBox.style.backgroundColor = box.color;
+        divBox.setAttribute('data-index', index);
+
+        divBox.onclick = function() {
+          exibirAlertaCor(index);
+        };
+
+        caixasDiv.appendChild(divBox);
+      });
+    }
+
+    function exibirAlertaCor(index) {
+      let cor = boxes[index].color;
+
+      // Exibe o alerta
+      alert(`Você clicou na Caixa ${index + 1}. Cor: ${cor}`);
+    }
+
+    // Inicializa exibindo as caixas na tela
+    listarBox();
+  </script>
+
+</body>
+</html>

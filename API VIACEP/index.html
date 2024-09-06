@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+﻿
+    <!-- Bootstrap CSS 4.0.0 -->
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+          crossorigin="anonymous">
+﻿
+    <style>
+      body {
+        background-color: #f7f9fc;
+        font-family: 'Arial', sans-serif;
+      }
+
+      .jumbotron {
+        background-color: #007bff;
+        color: white;
+        padding: 2rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+
+      h1 {
+        font-weight: bold;
+        text-align: center;
+      }
+
+      #form-cep {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      #form-cep label {
+        font-weight: bold;
+      }
+
+      #cep {
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+      }
+
+      button[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        font-weight: bold;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #218838;
+      }
+
+      #resultado {
+        margin-top: 20px;
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      pre {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        white-space: pre-wrap;
+      }
+    </style>
+﻿
+    <title>Consulta CEP - ViaCEP</title>
+  </head>
+  <body>
+﻿
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Consulta de Endereço pelo CEP</h1>
+      </div>
+﻿
+      <form id="form-cep">
+        <div class="form-group">
+          <label for="cep">Digite o CEP:</label>
+          <input type="text" id="cep" class="form-control" placeholder="Ex: 01001000" maxlength="8" required>
+        </div>
+﻿
+        <button type="submit" class="btn">Buscar Endereço</button>
+      </form>
+﻿
+      <hr />
+﻿
+      <div id="resultado" class="mt-4">
+        <h4>Resultado:</h4>
+        <pre id="json-result"></pre>
+      </div>
+    </div>
+﻿
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">﻿</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">﻿</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">﻿</script>
+ 
+    <script type="text/javascript">
+      document.getElementById('form-cep').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        let cep = document.getElementById('cep').value;
+        let url = `https://viacep.com.br/ws/${cep}/json/`;
+
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('json-result').textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            document.getElementById('json-result').textContent = "Erro ao buscar o CEP!";
+            console.error('Erro:', error);
+          });
+      });
+    </script>
+  </body>
+</html>
