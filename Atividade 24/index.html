@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Exibir Texto no Modal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1>Exibir Texto no Modal</h1>
+    <button type="button" class="btn btn-primary" onclick="mostrarTextoNoModal()">
+      Inserir Texto e Exibir no Modal
+    </button>
+  </div>
+
+  <div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-labelledby="meuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="meuModalLabel">Texto Inserido</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+    function mostrarTextoNoModal() {
+      let texto = prompt("Digite o texto que deseja exibir no modal:");
+
+      if (texto) {
+        document.getElementById('modal-body').innerText = texto;
+
+        // Exibir o modal
+        $('#meuModal').modal('show');
+      } else {
+        alert('Você não inseriu nenhum texto!');
+      }
+    }
+  </script>
+
+</body>
+</html>

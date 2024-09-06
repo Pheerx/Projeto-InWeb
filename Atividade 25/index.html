@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Notas</title>
+</head>
+<body>
+
+  <h1>Consulta de Notas</h1>
+
+  <button onclick="exibirNotas()">Exibir Notas</button>
+  <button onclick="consultarNota()">Consultar Nota</button>
+
+  <pre id="array-notas"></pre>
+
+  <script>
+    const notas = [8.5, 6.2, 7.0, 9.1, 5.5, 7.3, 6.8, 4.0, 8.0, 7.5];
+
+    function exibirNotas() {
+      let resultado = "Notas Fictícias:\n";
+      
+      for (let i = 0; i < notas.length; i++) {
+        resultado += `Posição ${i + 1}: Nota = ${notas[i]}\n`;
+      }
+      
+      document.getElementById('array-notas').textContent = resultado;
+    }
+
+    function consultarNota() {
+      let posicao = prompt("Digite a posição da nota que deseja consultar (de 1 a 10):");
+      
+      posicao = parseInt(posicao) - 1;
+
+      if (posicao >= 0 && posicao < notas.length) {
+        let nota = notas[posicao];
+
+        if (nota >= 7.0) {
+          alert(`A nota da posição ${posicao + 1} é ${nota}. Aluno APROVADO!`);
+        } else {
+          alert(`A nota da posição ${posicao + 1} é ${nota}. Aluno REPROVADO!`);
+        }
+      } else {
+        alert("Posição inválida. Digite um número entre 1 e 10.");
+      }
+    }
+  </script>
+
+</body>
+</html>
