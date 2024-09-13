@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Informatica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header, footer, nav, aside, section {
+            background: #940000;    
+            color: #ffffff;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        header, footer {
+            text-align: center;
+        }
+        nav {
+            flex: 1;
+            background: #005f0d;
+        }
+        nav h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        aside {
+            flex: 1;
+            background: #005f0d;
+        }
+        .main {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+        }
+        .content {
+            display: flex;
+            flex: 3;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .news-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        section {
+            background: #666;
+            flex: 1 1 calc(50% - 20px);
+            padding: 10px;
+        }
+        article {
+            background: #fff;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        section header h3 {
+            font-size: 16px;
+            margin: 0;
+        }
+        article h4 {
+            font-size: 14px;
+            margin: 10px 0 5px 0;
+        }
+        article img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        footer {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Licenciatura em Informatica</h1>
+</header>
+
+<div class="main">
+    <nav>
+        <h2>Navegação</h2>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Curso.html">Sobre o Curso</a></li>
+            <li><a href="Docentes.html">Docentes</a></li>
+            <li><a href="Contatos.html">Contatos</a></li>
+            <li><a href="Eventos.html">Eventos</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="news-grid">
+            <section>
+                <header>
+                    <h3>Curso de Informatica</h3>
+                </header>
+                <article>
+                    <img src="https://th.bing.com/th/id/R.fceb7e9ace523ebbcbd7da4a9dfb69b8?rik=cLNp%2b0Hl%2biOXdQ&riu=http%3a%2f%2fbloginformaticamicrocamp.com.br%2fwp-content%2fuploads%2f2017%2f02%2finfo-capa.jpg&ehk=4CQlFN%2bg%2bjGNaAqUmcSB5GOqX1rYO1bQKmxnXJ0F2Lc%3d&risl=&pid=ImgRaw&r=0" alt="Imagem de Informatica">
+                    <h4>Curso de Informatica</h4>
+                    <p>Em um mundo cada vez mais digitalizado, o domínio das habilidades básicas de informática é fundamental para qualquer pessoa, seja para avançar na carreira, complementar a formação acadêmica ou simplesmente se manter atualizado com as novas tecnologias..</p>
+                </article>
+            </section>
+            <section>
+                <header>
+                    <h3>Eventos</h3>
+                </header>
+                <article>
+                    <img src="https://revistati.com.br/wp-content/uploads/2023/05/conceito-de-colagem-de-controle-de-qualidade-padrao-1.jpg" alt="Imagem de Tecnologia">
+                    <h4>Egosurfing: como proteger os dados pessoais na internet</h4>
+                    <p>“Geração Z já está na frente nesse jogo”, diz especialista
+
+                    </p>
+                </article>
+                <footer>4 horas atrás</footer>
+            </section>
+            <section>
+                <header>
+                </header>
+                <article>
+                    <img src="https://revistati.com.br/wp-content/uploads/2024/02/idea_14-1100x584.jpg" alt="Imagem de Tecnologia">
+                    <h4>74% das micro, pequenas e médias empresas no país já utilizam IA</h4>
+                    <p>A Br24 é uma das empresas que está apostando na inteligência artificial para aprimorar a relação com os seus clientes
+
+                    </p>
+                </article>
+                <footer>6 horas atrás</footer>
+            </section>
+            <section>
+                <header>
+                </header>
+                <article>
+                    <img src="https://revistati.com.br/wp-content/uploads/2024/08/Gerino-Xavier-presidente-da-Fenainfo-Foto-Jefferson-Rudy-Agencia-Senado-.jpg" alt="Imagem de Tecnologia">
+                    <h4>Setor de tecnologia na luta por mudanças na reforma tributária</h4>
+                    <p>Fenainfo defende emendas para o setor de tecnologia na reforma tributária durante audiência no Senado</p>
+                </article>
+                <footer>8 horas atrás</footer>
+            </section>
+        </div>
+    </div>
+
+    <aside>
+        <p>Todos os direitos reservados.</p>
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2024 Informatica. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
